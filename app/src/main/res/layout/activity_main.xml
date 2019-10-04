@@ -24,6 +24,8 @@
                 android:layout_span="4"
                 android:height="200dp"
                 android:autoText="false"
+                android:clickable="false"
+                android:focusable="false"
                 android:gravity="bottom"
                 android:padding="10dp"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -44,7 +46,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFEBEBEB"
                 android:onClick="pressClear"
-                android:text="C"
+                android:text="@string/txtClear"
                 android:textSize="30sp" />
 
             <Button
@@ -53,7 +55,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFEBEBEB"
                 android:onClick="pressNegativePositive"
-                android:text="+/-"
+                android:text="@string/txtPosNeg"
                 android:textSize="30sp" />
 
             <Button
@@ -62,7 +64,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFEBEBEB"
                 android:onClick="pressBack"
-                android:text="BACK"
+                android:text="@string/txtBack"
                 android:textSize="18sp" />
 
             <Button
@@ -71,7 +73,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFFF9800"
                 android:onClick="operatorButtonClicked"
-                android:text="/"
+                android:text="@string/txtDivide"
                 android:textSize="30sp" />
         </TableRow>
 
@@ -88,7 +90,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FF555555"
                 android:onClick="numberButtonClicked"
-                android:text="7"
+                android:text="@string/txt7"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -98,7 +100,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FF555555"
                 android:onClick="numberButtonClicked"
-                android:text="8"
+                android:text="@string/txt8"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -108,7 +110,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FF555555"
                 android:onClick="numberButtonClicked"
-                android:text="9"
+                android:text="@string/txt9"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -118,7 +120,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFFF9800"
                 android:onClick="operatorButtonClicked"
-                android:text="X"
+                android:text="@string/txtMultiply"
                 android:textSize="30sp" />
         </TableRow>
 
@@ -135,7 +137,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FF555555"
                 android:onClick="numberButtonClicked"
-                android:text="4"
+                android:text="@string/txt4"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -145,7 +147,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FF555555"
                 android:onClick="numberButtonClicked"
-                android:text="5"
+                android:text="@string/txt5"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -155,7 +157,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FF555555"
                 android:onClick="numberButtonClicked"
-                android:text="6"
+                android:text="@string/txt6"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -165,7 +167,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFFF9800"
                 android:onClick="operatorButtonClicked"
-                android:text="-"
+                android:text="@string/txtMinus"
                 android:textSize="30sp" />
         </TableRow>
 
@@ -182,7 +184,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FF555555"
                 android:onClick="numberButtonClicked"
-                android:text="1"
+                android:text="@string/txt1"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -192,7 +194,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FF555555"
                 android:onClick="numberButtonClicked"
-                android:text="2"
+                android:text="@string/txt2"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -202,7 +204,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FF555555"
                 android:onClick="numberButtonClicked"
-                android:text="3"
+                android:text="@string/txt3"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -212,7 +214,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFFF9800"
                 android:onClick="operatorButtonClicked"
-                android:text="+"
+                android:text="@string/txtPlus"
                 android:textSize="30sp" />
         </TableRow>
 
@@ -230,7 +232,7 @@
                 android:layout_span="2"
                 android:backgroundTint="#FF555555"
                 android:onClick="numberButtonClicked"
-                android:text="0"
+                android:text="@string/txt0"
                 android:textColor="#FFFFFF"
                 android:textSize="30sp" />
 
@@ -240,7 +242,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FF555555"
                 android:onClick="pressDecimal"
-                android:text="."
+                android:text="@string/txtDecimal"
                 android:textColor="#FFFFFF"
                 android:textSize="36sp" />
 
@@ -250,7 +252,7 @@
                 android:layout_height="match_parent"
                 android:backgroundTint="#FFFF9800"
                 android:onClick="pressEquals"
-                android:text="="
+                android:text="@string/txtEqual"
                 android:textSize="30sp" />
         </TableRow>
     </TableLayout>

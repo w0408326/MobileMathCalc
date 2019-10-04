@@ -14,9 +14,9 @@ public class Calculator {
                 return leftNum * rightNum;
             case '/':
                 return leftNum / rightNum;
-
         }
-
         return 0;
     }
+
+
 }

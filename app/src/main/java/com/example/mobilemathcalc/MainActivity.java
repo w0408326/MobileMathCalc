@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    // global variables for the equations
     private Double leftNum;
     private char operator;
     private Double rightNum;
@@ -19,55 +20,62 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    // function called for numbers 0-9 when they're pressed
     public void numberButtonClicked(View v){
-        Button B = (Button)v;
+        Button b = (Button)v;
 
         TextView t = (TextView)findViewById(R.id.textView);
 
-        if(t.getText().toString().matches("0") && B.getText().toString().matches("0")){
-
+        if(t.getText().toString().matches("0") && b.getText().toString().matches("0")){
+            //prevents 0 from being clicked multiple times
         }else{
-            t.setText(t.getText().toString() + B.getText());
+            //sets the display area to append the number button pressed
+            t.setText(t.getText().toString() + b.getText());
         }
-
-
-
     }
 
+    // function called for when operators are pressed
     public void operatorButtonClicked(View v){
-        Button B = (Button)v;
+        Button b = (Button)v;
         TextView t = (TextView)findViewById(R.id.textView);
 
-        operator = ' ';
-        operator = B.getText().charAt(0);
+        operator = ' '; // clears the operator
+        operator = b.getText().charAt(0); // assigns operator to button pressed
 
-        if(leftNum != null){
-
-        }else{
+        // if display area isn't empty and left number hasn't been assigned
+        if(!t.getText().toString().matches("") && leftNum == null){
+            // left number is assigned the number in display area
             leftNum = Double.parseDouble(t.getText().toString());
-        }
+            // clear display area
+            t.setText("");
+        // if left number is assigned, display area isn't empty, and right number isn't assigned
+        }else if(leftNum != null && !t.getText().toString().matches("") && rightNum == null){
+            //  assign right number
+            rightNum = Double.parseDouble(t.getText().toString());
+            t.setText(Double.toString(Calculator.Calculate(leftNum,operator,rightNum)));
 
-        t.setText("");
+            leftNum = Double.parseDouble(t.getText().toString());
+        }else if(!t.getText().toString().matches("")){
+            leftNum = Double.parseDouble(t.getText().toString());
+            t.setText("");
+        }
     }
 
     public void pressEquals(View v){
-        Button B = (Button)v;
+        TextView t = findViewById(R.id.textView);
 
-        TextView t = (TextView)findViewById(R.id.textView);
+        if(leftNum == null){
 
-        if(!t.getText().toString().matches("")){
+        }
+        else if(!t.getText().toString().matches("")){
             rightNum = Double.parseDouble(t.getText().toString());
             t.setText(Double.toString(Calculator.Calculate(leftNum,operator,rightNum)));
 
             leftNum = Double.parseDouble(t.getText().toString());
         }
-
-
     }
 
     public void pressClear(View v){
-        Button B =(Button)v;
-
         leftNum = null;
         operator = ' ';
         rightNum = null;
@@ -75,22 +83,19 @@ public class MainActivity extends AppCompatActivity {
         TextView t = (TextView)findViewById(R.id.textView);
 
         t.setText("");
-
     }
 
     public void pressDecimal(View v){
-        Button B = (Button)v;
+        Button b = (Button)v;
 
         TextView t = (TextView)findViewById(R.id.textView);
 
         if(!t.getText().toString().contains(".") & !t.getText().toString().matches("")){
-            t.setText(t.getText().toString() + B.getText());
+            t.setText(t.getText().toString() + b.getText());
         }
     }
 
     public void pressNegativePositive(View v){
-        Button B = (Button)v;
-
         TextView t = (TextView)findViewById(R.id.textView);
 
         if(!t.getText().toString().contains("-")){
@@ -101,11 +106,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void pressBack (View v){
-        Button B = (Button)v;
-
         TextView t = (TextView)findViewById(R.id.textView);
-
-
 
         if(t.getText().length() != 0){
             t.setText((t.getText().toString().substring(0,t.getText().length()-1)));
