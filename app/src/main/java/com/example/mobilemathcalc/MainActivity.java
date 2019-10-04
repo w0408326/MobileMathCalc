@@ -9,9 +9,9 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private double leftNum;
+    private Double leftNum;
     private char operator;
-    private double rightNum;
+    private Double rightNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,19 +24,28 @@ public class MainActivity extends AppCompatActivity {
 
         TextView t = (TextView)findViewById(R.id.textView);
 
-        t.setText(t.getText().toString() + B.getText());
+        if(t.getText().toString().matches("0") && B.getText().toString().matches("0")){
+
+        }else{
+            t.setText(t.getText().toString() + B.getText());
+        }
+
 
 
     }
 
     public void operatorButtonClicked(View v){
         Button B = (Button)v;
-
-        operator = B.getText().charAt(0);
-
         TextView t = (TextView)findViewById(R.id.textView);
 
-        leftNum = Double.parseDouble(t.getText().toString());
+        operator = ' ';
+        operator = B.getText().charAt(0);
+
+        if(leftNum != null){
+
+        }else{
+            leftNum = Double.parseDouble(t.getText().toString());
+        }
 
         t.setText("");
     }
@@ -46,9 +55,12 @@ public class MainActivity extends AppCompatActivity {
 
         TextView t = (TextView)findViewById(R.id.textView);
 
-        rightNum = Double.parseDouble(t.getText().toString());
+        if(!t.getText().toString().matches("")){
+            rightNum = Double.parseDouble(t.getText().toString());
+            t.setText(Double.toString(Calculator.Calculate(leftNum,operator,rightNum)));
 
-        t.setText(Double.toString(Calculator.Calculate(leftNum,operator,rightNum)));
+            leftNum = Double.parseDouble(t.getText().toString());
+        }
 
 
     }
@@ -56,9 +68,9 @@ public class MainActivity extends AppCompatActivity {
     public void pressClear(View v){
         Button B =(Button)v;
 
-        leftNum= 0;
+        leftNum = null;
         operator = ' ';
-        rightNum = 0;
+        rightNum = null;
 
         TextView t = (TextView)findViewById(R.id.textView);
 
@@ -71,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView t = (TextView)findViewById(R.id.textView);
 
-        if(!t.getText().toString().contains(".")){
+        if(!t.getText().toString().contains(".") & !t.getText().toString().matches("")){
             t.setText(t.getText().toString() + B.getText());
         }
     }
